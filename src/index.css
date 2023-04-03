@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .wrap-width {
+        @apply w-[min(90rem,96%)] mx-auto;
+    }
+}
