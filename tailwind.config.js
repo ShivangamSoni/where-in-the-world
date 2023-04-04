@@ -6,6 +6,9 @@ export default {
             fontFamily: {
                 primary: "'Nunito Sans', sans-serif;",
             },
+            boxShadow: {
+                full: "0 0 6px 1px rgba(0,0,0,0.2), 0 0 4px -1px rgba(0,0,0,0.2)",
+            },
         },
     },
     plugins: [require("daisyui")],
