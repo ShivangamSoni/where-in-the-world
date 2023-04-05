@@ -5,7 +5,7 @@ import Header from "./Header";
 
 export default function RootLayout() {
     return (
-        <div data-theme="light" className="min-h-screen text-neutral">
+        <div className="min-h-screen text-neutral">
             <Header />
             <QueryClientProvider client={new QueryClient()}>
                 <main className="wrap-width py-8">

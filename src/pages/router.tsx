@@ -1,13 +1,16 @@
-import RootLayout from "@features/site/RootLayout";
 import { createBrowserRouter } from "react-router-dom";
+
+import RootLayout from "@features/site/RootLayout";
+
 import HomePage from "./Home";
 import DetailsPage from "./Details";
+import NotFound from "./404";
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element: <RootLayout />,
-        errorElement: <h1>404 Not Found</h1>,
+        errorElement: <NotFound />,
         children: [
             {
                 index: true,
