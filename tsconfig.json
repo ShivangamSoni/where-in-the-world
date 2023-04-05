@@ -20,7 +20,8 @@
             "@features/*": ["src/features/*"],
             "@pages/*": ["src/pages/*"],
             "@components/*": ["src/components/*"],
-            "@utils/*": ["src/utils/*"]
+            "@utils/*": ["src/utils/*"],
+            "@dataTypes/*": ["src/dataTypes/*"]
         }
     },
     "include": ["src"],

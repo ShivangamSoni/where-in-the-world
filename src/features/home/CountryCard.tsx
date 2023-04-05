@@ -1,28 +1,35 @@
+import { Link } from "react-router-dom";
+
+import { type CountryResponse } from "@dataTypes/country";
+
 import { numberFormatter } from "@utils/numberFormatter";
 
-interface CardProps {
-    cca3: string;
-    flagUrl: string;
-    name: string;
-    population: number;
-    region: string;
-    capital: string;
-}
+type CardProps = Pick<
+    CountryResponse,
+    "cca3" | "flags" | "name" | "population" | "region" | "capital"
+>;
 
 export default function CountryCard({
-    flagUrl,
-    name,
+    flags: { png },
+    name: { common },
     population,
     region,
     capital,
+    cca3,
 }: CardProps) {
     return (
-        <article className="card card-normal bg-primary shadow-xl rounded-lg">
+        <article className="card card-normal bg-primary shadow-xl rounded-lg h-full grid grid-rows-[1fr_auto]">
             <figure>
-                <img src={flagUrl} alt="Shoes" />
+                <img
+                    src={png}
+                    alt="Shoes"
+                    className="w-full h-full object-cover"
+                />
             </figure>
             <div className="card-body">
-                <h2 className="card-title">{name}</h2>
+                <h2 className="card-title">
+                    <Link to={`/countries/${cca3}`}>{common}</Link>
+                </h2>
                 <div>
                     <p>
                         <span className="font-semibold">Population:</span>{" "}
@@ -36,7 +43,11 @@ export default function CountryCard({
                     </p>
                     <p>
                         <span className="font-semibold">Capital:</span>{" "}
-                        <span className="capitalize">{capital}</span>
+                        <span className="capitalize">
+                            {capital && capital.length >= 1
+                                ? capital[0]
+                                : "Not Found"}
+                        </span>
                     </p>
                 </div>
             </div>

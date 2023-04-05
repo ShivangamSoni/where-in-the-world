@@ -24,6 +24,10 @@ export default defineConfig({
                 find: "@utils",
                 replacement: resolve(__dirname, "src", "utils"),
             },
+            {
+                find: "@dataTypes",
+                replacement: resolve(__dirname, "src", "dataTypes"),
+            },
         ],
     },
 });
