@@ -28,6 +28,18 @@ export default defineConfig({
                 find: "@dataTypes",
                 replacement: resolve(__dirname, "src", "dataTypes"),
             },
+            {
+                find: "@data",
+                replacement: resolve(__dirname, "src", "data"),
+            },
+            {
+                find: "@hooks",
+                replacement: resolve(__dirname, "src", "hooks"),
+            },
+            {
+                find: "@redux",
+                replacement: resolve(__dirname, "src", "redux"),
+            },
         ],
     },
 });
