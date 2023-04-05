@@ -42,6 +42,7 @@ export default function HomeHeader() {
                 }}
                 options={regionFilter}
                 className="w-48 sm:w-80"
+                id="regionDropdown"
             />
         </div>
     );

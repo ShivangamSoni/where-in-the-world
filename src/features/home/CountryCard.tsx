@@ -10,7 +10,7 @@ type CardProps = Pick<
 >;
 
 export default function CountryCard({
-    flags: { png },
+    flags: { png, alt },
     name: { common },
     population,
     region,
@@ -22,7 +22,7 @@ export default function CountryCard({
             <figure>
                 <img
                     src={png}
-                    alt="Shoes"
+                    alt={alt || `${common}'s Flag`}
                     className="w-full h-full object-cover"
                 />
             </figure>

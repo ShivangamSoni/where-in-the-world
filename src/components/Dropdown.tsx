@@ -10,11 +10,13 @@ export default function Dropdown({
     value,
     onChange,
     className,
+    id,
 }: {
     options: readonly Option[];
     value: string;
     onChange: (value: string) => void;
     className?: string;
+    id: string;
 }) {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const dropdownContainer = useRef<HTMLDivElement>(null);
@@ -46,22 +48,25 @@ export default function Dropdown({
                 dropdownOpen ? "dropdown-open" : ""
             } ${className ?? ""}`}
         >
-            <label
-                id="regionDropdown"
-                aria-haspopup
-                aria-expanded={dropdownOpen}
+            <span
+                id={id}
                 onClick={toggleDropdown}
                 className="select select-md md:select-lg bg-primary shadow-md sm:!pr-20 items-center w-full"
             >
                 {selectedItem?.label || "Invalid Value"}
-            </label>
+            </span>
 
             <ul
-                aria-labelledby="regionDropdown"
+                role="listbox"
+                aria-labelledby={id}
                 className="dropdown-content menu p-2 mt-3 gap-2 bg-primary shadow-lg rounded-lg w-full"
             >
                 {options.map(({ label, value }) => (
-                    <li key={value}>
+                    <li
+                        key={value}
+                        role="option"
+                        aria-selected={value === selectedItem?.value}
+                    >
                         <button
                             className={`${
                                 value === selectedItem?.value

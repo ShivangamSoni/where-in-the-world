@@ -28,23 +28,19 @@ export default function Header() {
 
                 <ul className="flex-none menu menu-horizontal menu-compact md:menu-normal">
                     <li>
-                        <button
-                            className="font-semibold"
-                            onClick={toggleHandler}
-                        >
-                            <label className="swap swap-flip">
-                                <input
-                                    type="checkbox"
-                                    checked={theme === "light"}
-                                    readOnly
-                                />
-                                <LightModeIcon className="swap-on" />
-                                <DarkModeIcon className="swap-off" />
-                            </label>
-                            <span>
+                        <label className="swap swap-flip font-semibold">
+                            <span className="sr-only">Toggle Site Theme</span>
+                            <input
+                                type="checkbox"
+                                onChange={toggleHandler}
+                                checked={theme === "light"}
+                            />
+                            <LightModeIcon className="swap-on" />
+                            <DarkModeIcon className="swap-off" />
+                            <span className="pl-6">
                                 {theme === "dark" ? "Light" : "Dark"} Mode
                             </span>
-                        </button>
+                        </label>
                     </li>
                 </ul>
             </div>
