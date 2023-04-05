@@ -11,7 +11,7 @@ export default function Dropdown({
     onChange,
     className,
 }: {
-    options: Option[];
+    options: readonly Option[];
     value: string;
     onChange: (value: string) => void;
     className?: string;

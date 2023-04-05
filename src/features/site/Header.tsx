@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useAppDispatch, useAppSelector } from "@hooks/redux";
+import { selectTheme, toggleTheme } from "@redux/site.slice";
 
 import {
     BsMoon as LightModeIcon,
@@ -6,10 +7,11 @@ import {
 } from "react-icons/bs";
 
 export default function Header() {
-    const [theme, setTheme] = useState<"light" | "dark">("light");
+    const dispatch = useAppDispatch();
+    const theme = useAppSelector(selectTheme);
 
-    function toggleTheme() {
-        setTheme((prev) => (prev === "light" ? "dark" : "light"));
+    function toggleHandler() {
+        dispatch(toggleTheme());
     }
 
     return (
@@ -26,11 +28,15 @@ export default function Header() {
 
                 <ul className="flex-none menu menu-horizontal menu-compact md:menu-normal">
                     <li>
-                        <button className="font-semibold" onClick={toggleTheme}>
+                        <button
+                            className="font-semibold"
+                            onClick={toggleHandler}
+                        >
                             <label className="swap swap-flip">
                                 <input
                                     type="checkbox"
                                     checked={theme === "light"}
+                                    readOnly
                                 />
                                 <LightModeIcon className="swap-on" />
                                 <DarkModeIcon className="swap-off" />
